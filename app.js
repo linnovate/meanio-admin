@@ -62,7 +62,7 @@ Admin.register(function(app, auth, database, circles) {
         global: true
     });
 
-    Admin.angularDependencies(['ngClipboard']);
+    Admin.angularDependencies(['ngClipboard', 'mean.users']);
 
     // We enable routing. By default the Package Object is passed to the routes
     Admin.routes(app, auth, database, circles);

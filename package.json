@@ -1,6 +1,6 @@
 {
   "name": "meanio-admin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Admin module for MEAN applications",
   "author": {
     "name": "Linnovate",
@@ -19,6 +19,7 @@
     "postinstall" : "bower install"
   },
   "dependencies": {
+    "meanio-users": "0.1.x",
     "meanio-circles": "0.1.x",
     "request": "^2.36.0",
     "gridfs-stream": "latest"
