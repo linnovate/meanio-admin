@@ -1,8 +1,8 @@
 {
   "name": "admin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "mean": "0.6.0",
   "dependencies": {
-    "circles": "0.1.0"
+    "circles": "0.1.x"
   }
 }
