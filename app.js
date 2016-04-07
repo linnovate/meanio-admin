@@ -51,17 +51,6 @@ Admin.register(function(app, auth, database, circles) {
         menu: 'admin'
     });
 
-    Admin.aggregateAsset('css', 'admin.css');
-    Admin.aggregateAsset('js', '../lib/ng-clip/src/ngClip.js', {
-        absolute: false,
-        global: true
-    });
-
-    Admin.aggregateAsset('js', '../lib/zeroclipboard/dist/ZeroClipboard.js', {
-        absolute: false,
-        global: true
-    });
-
     Admin.angularDependencies(['ngClipboard', 'mean.users']);
 
     // We enable routing. By default the Package Object is passed to the routes
