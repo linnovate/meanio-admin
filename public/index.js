@@ -1,5 +1,4 @@
 'use strict';
 
-import './assets/css/admin.css';
-import './assets/css/admin.css';
-import 'ng-clip';
+require('./assets/css/admin.css');
+require('ng-clip');
