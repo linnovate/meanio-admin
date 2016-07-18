@@ -1,0 +1,9 @@
+{
+  "name": "admin",
+  "version": "0.1.2",
+  "mean": "0.6.0",
+  "dependencies": {
+    "users": "0.1.x",
+    "circles": "0.1.x"
+  }
+}
