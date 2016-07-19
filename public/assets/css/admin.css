@@ -6,10 +6,10 @@
     top: 50px;
     width: 60px;
 }*/
-md-backdrop.md-sidenav-backdrop{
+#admin-menu md-backdrop.md-sidenav-backdrop{
     display:none
 }
-md-sidenav {
+#admin-menu md-sidenav {
     width: 182px;
 }
 #admin-menu md-content {
@@ -24,6 +24,7 @@ md-sidenav {
     
 #admin-menu a {
     display: flex;
+    align-items: center;
     color: #3F51B5;
 }
 #admin-menu md-icon {
@@ -32,11 +33,11 @@ md-sidenav {
 #admin-menu a p {
     margin: 0 10px;
 }
-#admin-menu a:hover, a:focus {
+#admin-menu a, a:hover, a:focus {
     text-decoration: none;
 }
 
-#admin-menu .nav , #admin-menu .open-icon, #admin-menu .wrapper-ninja {
+#admin-menu , #admin-menu .open-icon, #admin-menu .wrapper-ninja {
     width: 60px;
     background-color: #176583;
     -webkit-transition-duration: 0.5s;
