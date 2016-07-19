@@ -6,10 +6,34 @@
     top: 50px;
     width: 60px;
 }*/
-
-#admin-menu .nav > li > a:hover, .nav > li > a:focus {
+md-backdrop.md-sidenav-backdrop{
+    display:none
+}
+md-sidenav {
+    width: 182px;
+}
+#admin-menu md-content {
+    text-align: center;
+}
+#admin-menu md-content button{
+    padding: 2px 15px;
+}
+.md-sidenav-left, md-sidenav {
+    top: 64px;
+}
+    
+#admin-menu a {
+    display: flex;
+    color: #3F51B5;
+}
+#admin-menu md-icon {
+    color: #3F51B5;
+}
+#admin-menu a p {
+    margin: 0 10px;
+}
+#admin-menu a:hover, a:focus {
     text-decoration: none;
-    background-color: #103c4d;
 }
 
 #admin-menu .nav , #admin-menu .open-icon, #admin-menu .wrapper-ninja {

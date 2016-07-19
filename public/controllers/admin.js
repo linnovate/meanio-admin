@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.admin').controller('AdminController', ['$scope', 'Global', 'Menus', '$rootScope', 'MeanUser',
-    function($scope, Global, Menus, $rootScope, MeanUser) {
+angular.module('mean.admin').controller('AdminController', ['$scope', 'Global', 'Menus','$mdSidenav', '$rootScope', 'MeanUser',
+    function($scope, Global, Menus, $mdSidenav, $rootScope, MeanUser) {
         $scope.global = Global;
         $scope.menus = {};
         $scope.overIcon = false;
@@ -24,6 +24,9 @@ angular.module('mean.admin').controller('AdminController', ['$scope', 'Global', 
         queryMenu('admin', defaultAdminMenu);
 
         $scope.isCollapsed = false;
+        $scope.closeMenu = function() {
+           $mdSidenav('left').close();          
+        };
 
         $rootScope.$on('loggedin', function() {
 
