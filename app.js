@@ -29,20 +29,20 @@ Admin.register(function(app, auth, database, circles) {
         icon: 'view_module',
         menu: 'admin'
     });
-    Admin.menus.add({
-        roles: ['admin'],
-        title: 'THEMES',
-        link: 'themes',
-        icon: 'palette',
-        menu: 'admin'
-    });
-    Admin.menus.add({
-        roles: ['admin'],
-        title: 'SETTINGS',
-        link: 'settings',
-        icon: 'settings',
-        menu: 'admin'
-    });
+    // Admin.menus.add({
+    //     roles: ['admin'],
+    //     title: 'THEMES',
+    //     link: 'themes',
+    //     icon: 'palette',
+    //     menu: 'admin'
+    // });
+    // Admin.menus.add({
+    //     roles: ['admin'],
+    //     title: 'SETTINGS',
+    //     link: 'settings',
+    //     icon: 'settings',
+    //     menu: 'admin'
+    // });
     Admin.menus.add({
         roles: ['admin'],
         title: 'USERS',

@@ -15,14 +15,14 @@ module.exports = function(Admin, app, auth, database, circles) {
     app.delete('/api/admin/users/:userId', requiresAdmin, users.destroy);
 
     //Setting up the themes api
-    var themes = require('../controllers/themes');
-    app.get('/api/admin/themes', requiresAdmin, function(req, res) {
-        themes.save(req, res, gfs);
-    });
+    // var themes = require('../controllers/themes');
+    // app.get('/api/admin/themes', requiresAdmin, function(req, res) {
+    //     themes.save(req, res, gfs);
+    // });
 
-    app.get('/api/admin/themes/defaultTheme', requiresAdmin, function(req, res) {
-        themes.defaultTheme(req, res, gfs);
-    });
+    // app.get('/api/admin/themes/defaultTheme', requiresAdmin, function(req, res) {
+    //     themes.defaultTheme(req, res, gfs);
+    // });
 
     app.get('/api/admin/modules', requiresAdmin, function(req, res) {
 	    //var modules = mean.exportable_modules_list;
@@ -33,9 +33,9 @@ module.exports = function(Admin, app, auth, database, circles) {
 	    //}
     });
 
-    var settings = require('../controllers/settings');
-    app.get('/api/admin/settings', requiresAdmin, settings.get);
-    app.put('/api/admin/settings', requiresAdmin, settings.save);
+    // var settings = require('../controllers/settings');
+    // app.get('/api/admin/settings', requiresAdmin, settings.get);
+    // app.put('/api/admin/settings', requiresAdmin, settings.save);
 
 	var moduleSettings = require('../controllers/module-settings');
 	app.get('/api/admin/moduleSettings/:name', requiresAdmin, moduleSettings.get);
