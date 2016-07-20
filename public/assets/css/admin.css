@@ -120,7 +120,7 @@ span.editable-wrapper input {
 #admin-example-page form {
     margin-top: 85px;
 }
-#modules-tab .wrapper {
+/*#modules-tab .wrapper {
     margin-top: 35px;
 }
 
@@ -144,14 +144,22 @@ span.editable-wrapper input {
     border-top: none;
     padding: 10px 0;
     border-left: solid 3px #176583;
-}
+}*/
 
-#modules-tab .wrapper .module .name {
+#modules-tab .name {
     font-weight: bold;
 }
-#modules-tab .wrapper .module a {
+#modules-tab a {
     color: rgb(34, 134, 173);
     font-size: 12px;
+}
+
+#modules-tab table {
+    border-collapse: collapse;
+}
+#modules-tab table th, #modules-tab table td{
+    border: 1px solid;
+    padding: 20px 200px 20px 30px;
 }
 
 .users .actions-bar {

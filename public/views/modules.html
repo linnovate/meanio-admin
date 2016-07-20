@@ -1,4 +1,4 @@
-<section data-ng-controller="ModulesController as vm" id="modules-tab" ng-init="vm.init()">
+<!-- <section data-ng-controller="ModulesController as vm" id="modules-tab" ng-init="vm.init()">
    <div class="wrapper">
        <div class="row grid-title">
            <div class="col-md-4">Module</div>
@@ -13,4 +13,49 @@
        </div>
    </div>
 
+</section> -->
+<div data-ng-controller="ModulesController as vm" id="modules-tab" ng-init="vm.init()" ng-cloak>
+   <div>
+    <table>
+      <thead>
+        <tr>
+        <th>Module</th>
+        <th>Description</th>
+      </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="module in vm.modules">
+          <td>
+                <div>
+               <div class="name">{{module.title}}</div>
+               <div><a href="">Deactivate</a> | <a ui-sref="{{module.link}}">Settings</a></div>
+           </div>
+          </td>
+          <td>{{module.link}}</td>
+        </tr>
+        </tbody>  
+    </table>
+ <!--  <md-grid-list
+        md-cols="10" md-row-height="16:2">
+    <md-grid-tile md-colspan="3">
+      <h2>Module</h2>
+    </md-grid-tile>
+    <md-grid-tile md-colspan="7">
+      <h2>Description</h2>
+    </md-grid-tile>
+  </md-grid-list>
+  <md-grid-list ng-repeat="module in vm.modules"
+        md-cols="10" md-row-height="8:2">
+    <md-grid-tile md-colspan="3">
+      <div class="name">{{module.title}}</div>
+               <div><a href="">Deactivate</a> | <a ui-sref="{{module.link}}">Settings</a></div>
+    </md-grid-tile>
+    <md-grid-tile md-colspan="7">
+      <div>{{module.link}}</div>
+    </md-grid-tile>
+  </md-grid-list> -->
+   </div>
+
 </section>
+
+

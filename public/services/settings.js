@@ -29,4 +29,8 @@ angular.module('mean.admin').factory('Settings', ['$http',
             update: update
         };
     }
-]);
+])
+.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('altTheme')
+    .primaryPalette('purple') 
+});
