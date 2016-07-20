@@ -23,7 +23,6 @@ module.exports = function(Admin, app, auth, database, circles) {
     // app.get('/api/admin/themes/defaultTheme', requiresAdmin, function(req, res) {
     //     themes.defaultTheme(req, res, gfs);
     // });
-
     app.get('/api/admin/modules', requiresAdmin, function(req, res) {
 	    //var modules = mean.exportable_modules_list;
 	    //res.jsonp(modules);

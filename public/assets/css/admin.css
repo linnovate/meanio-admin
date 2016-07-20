@@ -1,11 +1,4 @@
-/*#admin-menu {
-    z-index:1;
-    position: fixed;
-    background-color: #176583;
-    height: 100%;
-    top: 50px;
-    width: 60px;
-}*/
+
 #admin-menu md-backdrop.md-sidenav-backdrop{
     display:none
 }

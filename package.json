@@ -1,112 +1,32 @@
 {
-  "_args": [
-    [
-      {
-        "escapedName": "meanio-admin",
-        "hosted": {
-          "directUrl": "https://raw.githubusercontent.com/pashist/meanio-admin/master/package.json",
-          "gitUrl": "git://github.com/pashist/meanio-admin.git",
-          "httpsUrl": "git+https://github.com/pashist/meanio-admin.git",
-          "shortcut": "github:pashist/meanio-admin",
-          "ssh": "git@github.com:pashist/meanio-admin.git",
-          "sshUrl": "git+ssh://git@github.com/pashist/meanio-admin.git",
-          "type": "github"
-        },
-        "name": "meanio-admin",
-        "raw": "meanio-admin@git://github.com/pashist/meanio-admin.git",
-        "rawSpec": "git://github.com/pashist/meanio-admin.git",
-        "scope": null,
-        "spec": "git://github.com/pashist/meanio-admin.git",
-        "type": "hosted"
-      },
-      "/home/sara2/devel/icu-mean/root-background"
-    ]
-  ],
-  "_from": "git://github.com/pashist/meanio-admin.git",
-  "_id": "meanio-admin@0.1.2",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/meanio-admin",
-  "_phantomChildren": {},
-  "_requested": {
-    "escapedName": "meanio-admin",
-    "hosted": {
-      "directUrl": "https://raw.githubusercontent.com/pashist/meanio-admin/master/package.json",
-      "gitUrl": "git://github.com/pashist/meanio-admin.git",
-      "httpsUrl": "git+https://github.com/pashist/meanio-admin.git",
-      "shortcut": "github:pashist/meanio-admin",
-      "ssh": "git@github.com:pashist/meanio-admin.git",
-      "sshUrl": "git+ssh://git@github.com/pashist/meanio-admin.git",
-      "type": "github"
-    },
-    "name": "meanio-admin",
-    "raw": "meanio-admin@git://github.com/pashist/meanio-admin.git",
-    "rawSpec": "git://github.com/pashist/meanio-admin.git",
-    "scope": null,
-    "spec": "git://github.com/pashist/meanio-admin.git",
-    "type": "hosted"
-  },
-  "_requiredBy": [
-    "#USER"
-  ],
-  "_resolved": "git://github.com/pashist/meanio-admin.git#6c2836e9fb00b5fa7c1c0fee8d753d2d22ca7979",
-  "_shasum": "11be3cac0b979eaf94143e4a08536d685a38d09d",
-  "_shrinkwrap": null,
-  "_spec": "meanio-admin@git://github.com/pashist/meanio-admin.git",
-  "_where": "/home/sara2/devel/icu-mean/root-background",
-  "author": {
-    "email": "mean@linnovate.net",
-    "name": "Linnovate"
-  },
-  "bugs": {
-    "url": "https://github.com/rjVapes/meanio-admin/issues"
-  },
-  "dependencies": {
-    "gridfs-stream": "latest",
-    "meanio-circles": "0.1.x",
-    "meanio-users": "0.1.x",
-    "ng-clip": "latest",
-    "request": "^2.36.0",
-    "zeroclipboard": "latest"
-  },
+  "name": "meanio-admin",
+  "version": "0.1.2",
   "description": "Admin module for MEAN applications",
-  "devDependencies": {},
+  "author": {
+    "name": "Linnovate",
+    "email": "mean@linnovate.net"
+  },
+  "mean": "0.6.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rjVapes/meanio-admin.git"
+  },
   "engines": {
     "node": "4.2.x",
     "npm": "3.x"
   },
-  "gitHead": "6c2836e9fb00b5fa7c1c0fee8d753d2d22ca7979",
-  "homepage": "https://github.com/rjVapes/meanio-admin#readme",
+   "scripts": {
+    "postinstall" : "bower install"
+  },
+  "dependencies": {
+    "meanio-users": "0.1.x",
+    "meanio-circles": "0.1.x",
+    "request": "^2.36.0",
+    "gridfs-stream": "latest",
+    "ng-clip": "latest",
+    "zeroclipboard": "latest"
+  },
   "license": "MIT",
-  "mean": "0.6.0",
-  "name": "meanio-admin",
-  "optionalDependencies": {},
   "readme": "# [![MEAN Logo](http://www.mean.io/img/logos/meanlogo.png)](http://mean.io/) MEAN Admin\n\n[![Dependencies Status](https://david-dm.org/linnovate/mean-admin.png)](https://david-dm.org/linnovate/mean-admin)\n\nAdmin module for MEAN applications to manage:\n\n- Modules list\n- Bootswatch themes support\n- App Settings\n- User Management\n\n## Basic Usage\n\n  Install Package in root of your mean app:\n\n    $ mean install mean-admin\n\n  Add the admin role to your user:\n\n    $ mean user <email> -a admin\n\n  (Re)start the server:\n\n    $ grunt\n",
-  "readmeFilename": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rjVapes/meanio-admin.git"
-  },
-  "scripts": {
-    "postinstall": "bower install"
-  },
-  "version": "0.1.2",
-  "warnings": [
-    {
-      "code": "ENOTSUP",
-      "pkgid": "meanio-admin@0.1.2",
-      "required": {
-        "node": "4.2.x",
-        "npm": "3.x"
-      }
-    },
-    {
-      "code": "ENOTSUP",
-      "pkgid": "meanio-admin@0.1.2",
-      "required": {
-        "node": "4.2.x",
-        "npm": "3.x"
-      }
-    }
-  ]
+  "readmeFilename": "README.md"
 }

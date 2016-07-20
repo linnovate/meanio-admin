@@ -24,6 +24,7 @@ angular.module('mean.admin').controller('AdminController', ['$scope', 'Global', 
         queryMenu('admin', defaultAdminMenu);
 
         $scope.isCollapsed = false;
+        
         $scope.closeMenu = function() {
            $mdSidenav('left').close();          
         };
