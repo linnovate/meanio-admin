@@ -1,0 +1,12 @@
+<md-dialog>
+<md-dialog-content class="md-dialog-content">
+<h2 class="md-title">Delete user</h2>
+  <div class="md-dialog-content-body">
+    <p>Are you sure to delete <strong>{{users.length}}</strong> user{{users.length>1 ? 's' : ''}} ?</p>
+  </div>
+</md-dialog-content>
+<md-dialog-actions>
+    <md-button ng-disabled="loading" ng-click="delete($event)" class="md-warn">Delete</md-button>
+    <md-button ng-click="close($event)">Cancel</md-button>
+  </md-dialog-actions>
+</md-dialog>

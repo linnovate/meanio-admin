@@ -22,13 +22,13 @@ Admin.register(function(app, auth, database, circles) {
         menu: 'main'
     });
 
-    Admin.menus.add({
+   /* Admin.menus.add({
         roles: ['admin'],
         title: 'MODULES',
         link: 'modules',
         icon: 'view_module',
         menu: 'admin'
-    });
+    });*/
     // Admin.menus.add({
     //     roles: ['admin'],
     //     title: 'THEMES',
@@ -43,13 +43,13 @@ Admin.register(function(app, auth, database, circles) {
     //     icon: 'settings',
     //     menu: 'admin'
     // });
-    Admin.menus.add({
-        roles: ['admin'],
-        title: 'USERS',
-        link: 'users',
-        icon: 'people',
-        menu: 'admin'
-    });
+    // Admin.menus.add({
+    //     roles: ['admin'],
+    //     title: 'USERS',
+    //     link: 'users',
+    //     icon: 'people',
+    //     menu: 'admin'
+    // });
 
     Admin.angularDependencies(['ngClipboard', 'mean.users']);
 

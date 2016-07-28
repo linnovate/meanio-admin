@@ -1,0 +1,49 @@
+<md-dialog aria-label="User Form" ng-cloak flex-gt-xs="50" flex-gt-sm="33" flex-gt-md="25" flex-gt-lg="20">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h3 class="md-title">{{dialogTitle}}</h3>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="close()">
+                <md-icon class="material-icons" aria-label="Close dialog">clear</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content class="md-dialog-content">
+        <form name="userForm">
+            <md-input-container class="md-icon-float md-block">
+                <md-icon class="material-icons">person</md-icon>
+                <input ng-model="user.name" name="name" placeholder="Name" type="text" required
+                       md-autofocus>
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <md-icon class="material-icons">perm_identity</md-icon>
+                <input ng-model="user.username" name="username" placeholder="Username (required)" type="text" required
+                       ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <md-icon class="material-icons">mail_outline</md-icon>
+                <input ng-model="user.email" ng-required="true" name="email" type="email"
+                       placeholder="Email (required)">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <md-icon class="material-icons">vpn_key</md-icon>
+                <input ng-model="user.password" type="password" placeholder="Password">
+            </md-input-container>
+            <md-input-container class="md-block md-icon-left">
+                <md-icon class="material-icons">supervisor_account</md-icon>
+                <label>Roles</label>
+                <md-select multiple ng-model="user.roles">
+                    <md-option ng-repeat="role in roles" value="{{role}}">
+                        {{role}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </form>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-disabled="loading || userForm.$invalid"
+                   ng-click="user._id ? update($event, user) : create($event, user)" class="md-primary">Save
+        </md-button>
+        <md-button ng-click="close($event)">Cancel</md-button>
+    </md-dialog-actions>
+</md-dialog>

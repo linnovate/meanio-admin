@@ -1,11 +1,31 @@
-<section data-ng-controller="ThemesController" data-ng-show="themes" id="themes" data-ng-init="init()">
-    <div class="progress progress-striped active" style="display:none">
-        <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
-            <span class="sr-only">Almost there. Updating theme</span>
+<div>
+    <div layout="column" ng-controller="MaterialThemesCtrl" class="md-padding themePicker">
+        <p>
+            Select a color from the <a class="md-accent" href="{{mdURL}}">Theme Color Palettes</a>
+            below:
+        </p>
+        <!-- Theme Options -->
+        <div layout="row" layout-wrap layout-align="center center">
+            <md-button ng-repeat="color in colors" flex-gt-md="15" flex="30"
+                       md-colors="{background: '{{color}}'}" md-colors-watch="false"
+                       ng-disabled="primary === color && !isPrimary" ng-click="selectTheme(color)">
+                {{color}}
+            </md-button>
+        </div>
+        <div layout="row" layout-align="center center">
+            <div class="heading" style="padding-top: 20px;">
+                Theme preview
+            </div>
+        </div>
+        <div layout="row" class="section" layout-align="center center">
+            <div layout="column" flex="50">
+                <theme-preview primary="primary" accent="accent"></theme-preview>
+            </div>
+        </div>
+        <div layout="row" layout-align="center center">
+
+            <a flex="50" flex-lt-md="100" class="md-primary md-button md-raised" href="#" ng-click="applyTheme()">Apply
+                Theme</a>
         </div>
     </div>
-
-    <img data-ng-repeat="theme in themes" ng-src="{{theme.thumbnail}}" alt="" data-ng-click="changeTheme(theme)" style="width:300px; height:200px; margin-right:25px; margin-bottom: 25px; cursor:pointer">
-
-    <button style="width:300px; height:200px; margin-right:25px; margin-bottom: 25px;" data-ng-click="defaultTheme()">Default Theme</button>
-</section>
+</div>

@@ -1,105 +1,144 @@
 'use strict';
+angular.module('mean.admin').controller('MaterialUsersController',
+    function ($scope, $rootScope, $http, Material, MeanUser, $mdDialog, $mdMedia, $mdToast, User) {
 
-angular.module('mean.admin').controller('UsersController', ['$scope', 'Global', 'Menus', '$rootScope', '$http', 'Users', 'Circles',
-    function($scope, Global, Menus, $rootScope, $http, Users, Circles) {
+        var roles = ['anonymous', 'authenticated', 'admin'];
 
-        $scope.global = Global;
-        $scope.user = {};
-
-        Circles.mine(function(acl) {
-
-            var circles = acl.allowed;
-
-            $scope.userSchema = [{
-                title: 'Email',
-                schemaKey: 'email',
-                type: 'email',
-                inTable: true
-            }, {
-                title: 'Name',
-                schemaKey: 'name',
-                type: 'text',
-                inTable: true
-            }, {
-                title: 'Username',
-                schemaKey: 'username',
-                type: 'text',
-                inTable: true
-            }, {
-                title: 'Roles',
-                schemaKey: 'roles',
-                type: 'select',
-                options: circles,
-                inTable: true
-            }, {
-                title: 'Password',
-                schemaKey: 'password',
-                type: 'password',
-                inTable: false
-            }, {
-                title: 'Repeat password',
-                schemaKey: 'confirmPassword',
-                type: 'password',
-                inTable: false
-            }];
-            
-        });
-
-
-
-        $scope.init = function() {
-            Users.query({}, function(users) {
-                $scope.users = users;
-            });
+        $scope.package = {
+            name: 'material'
         };
 
-        $scope.add = function(valid) {
-            if (!valid) return;
-            if (!$scope.users) $scope.users = [];
-
-            var user = new Users({
-                email: $scope.user.email,
-                name: $scope.user.name,
-                username: $scope.user.username,
-                password: $scope.user.password,
-                confirmPassword: $scope.user.confirmPassword,
-                roles: $scope.user.roles
-            });
-
-            user.$save(function(data, headers) {
-                $scope.user = {};
-                $scope.users.push(user);
-                $scope.userError = null;
-            }, function(data, headers) {
-                $scope.userError = data.data;
-            });
-        };
-
-        $scope.remove = function(user) {
-            for (var i in $scope.users) {
-                if ($scope.users[i] === user) {
-                    $scope.users.splice(i, 1);
+        $scope.openUserDialog = function (ev, selectedUser) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+            $mdDialog.show({
+                templateUrl: 'admin/views/user-dialog.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+                escapeToClose: true,
+                controller: function ($scope, $mdDialog) {
+                    $scope.user = Object.assign({}, selectedUser);
+                    $scope.roles = roles;
+                    $scope.dialogTitle = selectedUser ? 'Edit User' : 'Create New User';
+                    $scope.loading = false;
+                    $scope.close = function () {
+                        $mdDialog.hide()
+                    };
+                    $scope.create = function (ev, user) {
+                        $scope.loading = true;
+                        Material.createUser(user)
+                            .then(response => {
+                                selectedUser = response.data;
+                                $rootScope.$broadcast('UserUpdated');
+                                $mdDialog.hide();
+                            })
+                            .catch(response => {
+                                let errors = Material.parseValidationErrors(response);
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(response.data.message + "\n" + errors)
+                                        .hideDelay(2000)
+                                );
+                            })
+                            .then(() => $scope.loading = false)
+                    };
+                    $scope.update = function (ev, user) {
+                        $scope.loading = true;
+                        Material.updateUser(user)
+                            .then(response => {
+                                selectedUser = response.data;
+                                $rootScope.$broadcast('UserUpdated');
+                                $mdDialog.hide();
+                            })
+                            .catch(response => {
+                                let errors = Material.parseValidationErrors(response);
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(response.data.message + "\n" + errors)
+                                        .hideDelay(2000)
+                                );
+                            })
+                            .then(() => $scope.loading = false)
+                    };
                 }
-            }
-
-            user.$remove();
+            })
         };
 
-        $scope.update = function(user, userField) {
-            if (userField && userField === 'roles' && user.tmpRoles.indexOf('admin') !== -1 && user.roles.indexOf('admin') === -1) {
-                if (confirm('Are you sure you want to remove "admin" role?')) {
-                    user.$update();
-                } else {
-                    user.roles = user.tmpRoles;
+        $scope.openDeleteDialog = function (ev, users) {
+            $mdDialog.show({
+                templateUrl: 'admin/views/delete-dialog.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                controller: function ($scope, $rootScope, $q, $mdDialog) {
+                    $scope.users = users;
+                    $scope.delete = function (ev) {
+                        $scope.loading = true;
+                        $q.all(users.map(function (user) {
+                            return Material.deleteUser(user)
+                        })).then(function (results) {
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent("Deleted " + results.length + " items")
+                                    .hideDelay(2000)
+                            );
+                            $rootScope.$broadcast('UserDeleted');
+                        }).catch(function (response) {
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent(response.data.message)
+                                    .hideDelay(2000)
+                            );
+                        }).then(function () {
+                            $scope.loading = false;
+                            $mdDialog.hide();
+                        });
+                    };
+                    $scope.close = function () {
+                        $mdDialog.hide();
+                    };
                 }
-            } else
-                user.$update();
+            })
         };
 
-        $scope.beforeSelect = function(userField, user) {
-            if (userField === 'roles') {
-                user.tmpRoles = user.roles;
-            }
+
+        $scope.selected = [];
+
+        $scope.query = {
+            order: 'name',
+            limit: 5,
+            page: 1
         };
-    }
-]);
+
+        function getUsers(query = $scope.query) {
+            $scope.selected = [];
+            var params = {
+                skip: query.limit * (query.page - 1),
+                sort: query.order,
+                limit: query.limit
+            };
+            $scope.promise = User.query(params).$promise
+                .then(users => $scope.users = users)
+                .then(() => User.count().$promise)
+                .then(response => $scope.count = response.count)
+        }
+
+        $scope.onPaginate = function (page, limit) {
+            $scope.selected = [];
+            $scope.query = angular.extend($scope.query, {page: page, limit: limit});
+            getUsers();
+        };
+
+        $scope.onReorder = function (order) {
+            $scope.query = angular.extend($scope.query, {sort: order});
+            getUsers();
+        };
+        $scope.$on('UserCreated', getUsers);
+        $scope.$on('UserUpdated', getUsers);
+        $scope.$on('UserDeleted', getUsers);
+
+        getUsers();
+
+
+    });
