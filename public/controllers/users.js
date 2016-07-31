@@ -127,18 +127,18 @@ angular.module('mean.admin').controller('MaterialUsersController',
         $scope.onPaginate = function (page, limit) {
             $scope.selected = [];
             $scope.query = angular.extend($scope.query, {page: page, limit: limit});
-            getUsers();
+            getUsers(function(){});
+
         };
 
         $scope.onReorder = function (order) {
             $scope.query = angular.extend($scope.query, {sort: order});
-            getUsers();
+            getUsers(function(){});
         };
         $scope.$on('UserCreated', getUsers);
         $scope.$on('UserUpdated', getUsers);
         $scope.$on('UserDeleted', getUsers);
-
-        getUsers();
+        getUsers(function(){});
 
 
     });
