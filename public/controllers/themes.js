@@ -21,17 +21,9 @@ angular.module('mean.admin').controller('MaterialThemesCtrl',
             localStorage.setItem('themeAccentPalette', $scope.accent);
             $window.location.reload()
         };
-        /*  function savePalette (name){
-         localStorage.setItem('themePrimaryPalette', name);
-         document.location.reload();
-         }
-
-         $scope.savePalette = savePalette;
-         $scope.palettes = palettes;
-         $scope.currentPalette = localStorage.getItem('themePrimaryPalette') || 'indigo';*/
+      
     })
     .directive('themePreview', function () {
-        console.log('ssssssss')
         return {
             restrict: 'E',
             templateUrl: 'admin/views/theme-preview.html',
