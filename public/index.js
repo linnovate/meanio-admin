@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
-require('./assets/css/admin.css');
-window.ZeroClipboard = require('zeroclipboard');
-require('ng-clip');
+require('./assets/css/admin.css')
+window.ZeroClipboard = require('zeroclipboard')
+require('ng-clip')
