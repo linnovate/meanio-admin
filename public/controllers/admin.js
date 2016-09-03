@@ -32,7 +32,7 @@ angular.module('mean.admin').controller('AdminController', ['$scope', 'Global', 
       queryMenu('admin', defaultAdminMenu)
 
       $scope.global = {
-        authenticated: !! $rootScope.user,
+        authenticated: !!$rootScope.user,
         user: $rootScope.user
       }
     })

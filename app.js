@@ -12,7 +12,7 @@ var Admin = new Module('admin')
  */
 
 Admin.register(function (app, auth, database, circles) {
-  var icons = 'admin/assets/img/icons/'
+  // var icons = 'admin/assets/img/icons/'
 
   Admin.menus.add({
     title: 'admin settings',

@@ -1,24 +1,24 @@
 <div data-ng-controller="ModulesController as vm" id="modules-tab" ng-init="vm.init()" ng-cloak>
-   <div>
-    <table>
-      <thead>
-        <tr>
-        <th>Module</th>
-        <th>Description</th>
-      </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="module in vm.modules">
-          <td>
-                <div>
-               <div class="name">{{module.title}}</div>
-               <div><a href="">Deactivate</a> | <a ui-sref="{{module.link}}">Settings</a></div>
-           </div>
-          </td>
-          <td>{{module.link}}</td>
-        </tr>
-        </tbody>  
-    </table>
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>Module</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="module in vm.modules">
+					<td>
+						<div>
+							<div class="name">{{module.title}}</div>
+							<div><a href="">Deactivate</a> | <a ui-sref="{{module.link}}">Settings</a></div>
+						</div>
+					</td>
+					<td>{{module.link}}</td>
+				</tr>
+			</tbody>
+		</table>
 
-   </div>
+	</div>
 </div>
