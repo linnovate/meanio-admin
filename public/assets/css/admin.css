@@ -1,18 +1,36 @@
-#admin-menu {
-    z-index:1;
-    position: fixed;
-    background-color: #176583;
-    height: 100%;
-    top: 50px;
-    width: 60px;
-}
 
-#admin-menu .nav > li > a:hover, .nav > li > a:focus {
+#admin-menu md-backdrop.md-sidenav-backdrop{
+    display:none
+}
+#admin-menu md-sidenav {
+    width: 182px;
+}
+#admin-menu md-content {
+    text-align: center;
+}
+#admin-menu md-content button{
+    padding: 2px 15px;
+}
+.md-sidenav-left, md-sidenav {
+    top: 64px;
+}
+    
+#admin-menu a {
+    display: flex;
+    align-items: center;
+    color: #3F51B5;
+}
+#admin-menu md-icon {
+    color: #3F51B5;
+}
+#admin-menu a p {
+    margin: 0 10px;
+}
+#admin-menu a, a:hover, a:focus {
     text-decoration: none;
-    background-color: #103c4d;
 }
 
-#admin-menu .nav , #admin-menu .open-icon, #admin-menu .wrapper-ninja {
+#admin-menu , #admin-menu .open-icon, #admin-menu .wrapper-ninja {
     width: 60px;
     background-color: #176583;
     -webkit-transition-duration: 0.5s;
@@ -95,7 +113,7 @@ span.editable-wrapper input {
 #admin-example-page form {
     margin-top: 85px;
 }
-#modules-tab .wrapper {
+/*#modules-tab .wrapper {
     margin-top: 35px;
 }
 
@@ -119,14 +137,22 @@ span.editable-wrapper input {
     border-top: none;
     padding: 10px 0;
     border-left: solid 3px #176583;
-}
+}*/
 
-#modules-tab .wrapper .module .name {
+#modules-tab .name {
     font-weight: bold;
 }
-#modules-tab .wrapper .module a {
+#modules-tab a {
     color: rgb(34, 134, 173);
     font-size: 12px;
+}
+
+#modules-tab table {
+    border-collapse: collapse;
+}
+#modules-tab table th, #modules-tab table td{
+    border: 1px solid;
+    padding: 20px 200px 20px 30px;
 }
 
 .users .actions-bar {

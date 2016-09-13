@@ -2,6 +2,5 @@
     "name": "meanio-admin",
     "version": "0.1.2",
     "dependencies": {
-        "ng-clip": "latest"
     }
 }

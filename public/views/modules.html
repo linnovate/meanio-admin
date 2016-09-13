@@ -1,16 +1,10 @@
-<section data-ng-controller="ModulesController as vm" id="modules-tab" ng-init="vm.init()">
-   <div class="wrapper">
-       <div class="row grid-title">
-           <div class="col-md-4">Module</div>
-           <div class="col-md-8">Description</div>
-       </div>
-       <div class="row module" ng-repeat="module in vm.modules">
-           <div class="col-md-4">
-               <div class="name">{{module.title}}</div>
-               <div><a href="">Deactivate</a> | <a ui-sref="{{module.link}}">Settings</a></div>
-           </div>
-           <div class="col-md-8">{{module.link}}</div>
-       </div>
-   </div>
-
-</section>
+<md-content data-ng-controller="ModulesController as vm" id="modules-tab" ng-init="vm.init()" layout="column" layout-align="start start" ng-cloak>
+  <md-list flex>
+    <md-list-item class="md-3-line" ng-repeat="module in vm.modules" ng-click="null">
+      <div class="md-list-item-text" layout="column">
+        <h3>{{ module.title }}</h3>
+        <h4>{{module.link}}</h4>
+        <p><a href="">Deactivate</a> | <a ui-sref="{{module.link}}">Settings</a></p>
+      </div>
+    </md-list-item>
+</md-content>
