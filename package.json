@@ -15,9 +15,6 @@
     "node": "4.2.x",
     "npm": "3.x"
   },
-  "scripts": {
-    "postinstall": "bower install"
-  },
   "dependencies": {
     "meanio-users": "0.1.x",
     "meanio-circles": "0.1.x",
