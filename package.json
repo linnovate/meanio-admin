@@ -1,6 +1,6 @@
 {
   "name": "meanio-admin",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Admin module for MEAN applications",
   "author": {
     "name": "Linnovate",
@@ -9,7 +9,7 @@
   "mean": "0.6.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rjVapes/meanio-admin.git"
+    "url": "https://github.com/linnovate/meanio-admin.git"
   },
   "engines": {
     "node": "4.2.x",
