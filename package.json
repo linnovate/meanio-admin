@@ -25,28 +25,5 @@
   },
   "license": "MIT",
   "readme": "# [![MEAN Logo](http://www.mean.io/img/logos/meanlogo.png)](http://mean.io/) MEAN Admin\n\n[![Dependencies Status](https://david-dm.org/linnovate/mean-admin.png)](https://david-dm.org/linnovate/mean-admin)\n\nAdmin module for MEAN applications to manage:\n\n- Modules list\n- Bootswatch themes support\n- App Settings\n- User Management\n\n## Basic Usage\n\n  Install Package in root of your mean app:\n\n    $ mean install mean-admin\n\n  Add the admin role to your user:\n\n    $ mean user <email> -a admin\n\n  (Re)start the server:\n\n    $ grunt\n",
-  "readmeFilename": "README.md",
-  "devDependencies": {
-    "standard": "^8.0.0"
-  },
-  "standard": {
-    "globals": [
-      "$",
-      "_",
-      "alert",
-      "after",
-      "afterEach",
-      "angular",
-      "before",
-      "beforeEach",
-      "browser",
-      "confirm",
-      "describe",
-      "expect",
-      "it",
-      "jasmine",
-      "localStorage",
-      "XMLHttpRequest"
-    ]
-  }
+  "readmeFilename": "README.md"
 }
