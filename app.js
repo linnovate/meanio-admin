@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
 /*
  * Defining the Package
  */
-var Module = require('meanio').Module
-var Admin = new Module('admin')
+var Module = require('meanio').Module;
+var Admin = new Module('admin');
 
 /*
  * All MEAN packages require registration
@@ -19,7 +19,7 @@ Admin.register(function (app, auth, database, circles) {
     link: 'admin settings',
     roles: ['admin'],
     menu: 'main'
-  })
+  });
 
   Admin.menus.add({
     roles: ['admin'],
@@ -27,7 +27,7 @@ Admin.register(function (app, auth, database, circles) {
     link: 'modules',
     icon: 'view_module',
     menu: 'admin'
-  })
+  });
   // Admin.menus.add({
   //     roles: ['admin'],
   //     title: 'THEMES',
@@ -48,17 +48,17 @@ Admin.register(function (app, auth, database, circles) {
     link: 'users',
     icon: 'people',
     menu: 'admin'
-  })
+  });
 
-  Admin.angularDependencies(['ngClipboard', 'mean.users'])
+  Admin.angularDependencies(['ngClipboard', 'mean.users']);
 
   // We enable routing. By default the Package Object is passed to the routes
-  Admin.routes(app, auth, database, circles)
+  Admin.routes(app, auth, database, circles);
 
-  circles.registerCircle('admin')
-  circles.registerCircle('can delete content', ['admin'])
-  circles.registerCircle('can edit content', ['admin'])
-  circles.registerCircle('can create content', ['admin'])
+  circles.registerCircle('admin');
+  circles.registerCircle('can delete content', ['admin']);
+  circles.registerCircle('can edit content', ['admin']);
+  circles.registerCircle('can create content', ['admin']);
 
-  return Admin
-})
+  return Admin;
+});
