@@ -19,13 +19,13 @@
       };
 
       $scope.update = function (settings) {
-        settings = JSON.clean(JSON.unflatten(settings));
+        settings = JSON.unflatten(JSON.clean(settings));
         Settings.update(settings, function (data) {
         });
       };
 
       $scope.getTextToCopy = function () {
-        var settings = JSON.clean(JSON.unflatten($scope.settings));
+        var settings = JSON.unflatten(JSON.clean($scope.settings));
         return JSON.stringify(settings);
       };
 
