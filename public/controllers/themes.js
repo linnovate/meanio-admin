@@ -11,9 +11,9 @@
           method: 'GET',
           url: 'https://bootswatch.com/api/3.json',
           skipAuthorization: true
-        }).success(function (data, status, headers, config) {
-          $scope.themes = data.themes;
-        }).error(function (data, status, headers, config) {
+        }).then(function (response) {
+          $scope.themes = response.data.themes;
+        }).catch(function (response) {
         });
       };
 
@@ -23,22 +23,22 @@
         // $scope.selectedTheme = theme
         $('.progress-striped').show();
 
-        $http.get('/api/admin/themes?theme=' + theme.css).success(function (data, status, headers, config) {
-          if (data) {
+        $http.get('/api/admin/themes?theme=' + theme.css).then(function (response) {
+          if (response.data) {
             window.location.reload();
           }
-        }).error(function (data, status, headers, config) {
+        }).catch(function (response) {
           alert('error');
           $('.progress-striped').hide();
         });
       };
 
       $scope.defaultTheme = function () {
-        $http.get('/api/admin/themes/defaultTheme').success(function (data, status, headers, config) {
-          if (data) {
+        $http.get('/api/admin/themes/defaultTheme').then(function (response) {
+          if (response.data) {
             window.location.reload();
           }
-        }).error(function (data, status, headers, config) {
+        }).catch(function (response) {
           alert('error');
         });
       };
