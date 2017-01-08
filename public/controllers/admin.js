@@ -3,6 +3,7 @@
 
   angular.module('mean.admin').controller('AdminController', ['$scope', 'Global', 'Menus', '$mdSidenav', '$rootScope', 'MeanUser',
     function ($scope, Global, Menus, $mdSidenav, $rootScope, MeanUser) {
+      var vm = this;
       $scope.global = Global;
       $scope.menus = {};
       $scope.overIcon = false;
@@ -27,6 +28,10 @@
 
       $scope.closeMenu = function () {
         $mdSidenav('left').close();
+      };
+      
+      vm.toggleMenu = function () {
+        $mdSidenav('left').toggle();
       };
 
       $rootScope.$on('loggedin', function () {
